@@ -11,6 +11,8 @@
 		5D1ED65420C88633001852F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ED65320C88633001852F9 /* ViewController.swift */; };
 		5D1ED65620C88636001852F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D1ED65520C88636001852F9 /* Assets.xcassets */; };
 		5D1ED65920C88636001852F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1ED65720C88636001852F9 /* Main.storyboard */; };
+		5D1ED66220D128D2001852F9 /* SetIPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ED66120D128D2001852F9 /* SetIPVC.swift */; };
+		5D1ED66520D129F3001852F9 /* EditHotkeysVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ED66320D129F3001852F9 /* EditHotkeysVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		5D1ED65820C88636001852F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D1ED65A20C88636001852F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D1ED65B20C88636001852F9 /* ChatOSC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatOSC.entitlements; sourceTree = "<group>"; };
+		5D1ED66120D128D2001852F9 /* SetIPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetIPVC.swift; sourceTree = "<group>"; };
+		5D1ED66320D129F3001852F9 /* EditHotkeysVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHotkeysVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				5D1ED65320C88633001852F9 /* ViewController.swift */,
 				5D1ED65520C88636001852F9 /* Assets.xcassets */,
 				5D1ED65720C88636001852F9 /* Main.storyboard */,
+				5D1ED66320D129F3001852F9 /* EditHotkeysVC.swift */,
+				5D1ED66120D128D2001852F9 /* SetIPVC.swift */,
 				5D1ED65A20C88636001852F9 /* Info.plist */,
 				5D1ED65B20C88636001852F9 /* ChatOSC.entitlements */,
 			);
@@ -133,8 +139,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D1ED66520D129F3001852F9 /* EditHotkeysVC.swift in Sources */,
 				5D1ED65420C88633001852F9 /* ViewController.swift in Sources */,
 				5D1ED65220C88633001852F9 /* AppDelegate.swift in Sources */,
+				5D1ED66220D128D2001852F9 /* SetIPVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
