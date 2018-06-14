@@ -19,15 +19,13 @@ class EditHotkeysVC: NSViewController {
     @IBOutlet var fldHotkey3: NSTextField!
     @IBOutlet var fldHotkey4: NSTextField!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
+    }
+    
+    override func viewDidAppear() {
         self.view.window?.title = "Hotkeys"
-        
-        
     }
     
 }
