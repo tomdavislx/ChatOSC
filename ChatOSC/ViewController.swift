@@ -26,53 +26,23 @@ class ViewController: NSViewController {
     }
     
     @IBAction func btnHotkey1Clicked(_ sender: Any) {
-        sendHotkey(hk: "hk1")
+        parseMessage(messageToSend: hotkey1)
     }
     @IBAction func btnHotkey2Clicked(_ sender: Any) {
-        sendHotkey(hk: "hk2")
+        parseMessage(messageToSend: hotkey2)
     }
     @IBAction func btnHotkey3Clicked(_ sender: Any) {
-        sendHotkey(hk: "hk3")
+        parseMessage(messageToSend: hotkey3)
     }
     @IBAction func btnHotkey4Clicked(_ sender: Any) {
-        sendHotkey(hk: "hk4")
+        parseMessage(messageToSend: hotkey4)
     }
+    
     @IBAction func buttonSendClicked(_ sender: Any) {
         
         sendString = txtFldMessageText.stringValue
+        parseMessage(messageToSend: sendString)
         
-        if sendString != "" {
-        
-            txtFldMessageText.stringValue = ""
-        
-        switch sendString {
-        case "/clear" :
-            print (sendString)
-            print("Clearing Programmer")
-            txtFldMessageHistory.stringValue = ""
-        case "/macbeth" :
-            print (sendString)
-            print("Clearing Programmer")
-            txtFldMessageHistory.stringValue = ""
-            txtFldMessageHistory.stringValue = "THE THEATRE"
-        case "/fab" :
-            print (sendString)
-            print("Clearing Programmer")
-            txtFldMessageHistory.stringValue = ""
-            txtFldMessageHistory.stringValue = "THUNDERBOYS ARE GO"
-        default:
-            
-            print(sendString)
-            if txtFldMessageHistory.stringValue == "" {
-                txtFldMessageHistory.stringValue.append(sendString)
-            } else {
-                
-                txtFldMessageHistory.stringValue.append("\n\(sendString)")
-            }
-        }
-        } else {
-            txtFldMessageHistory.stringValue.append("\n ERROR:- Message contents blank")
-        }
     }
     
     @IBAction func buttonConnectClicked(_ sender: Any) {
@@ -104,20 +74,49 @@ class ViewController: NSViewController {
         }
     }
     
-    func sendHotkey(hk: String) {
+    func parseMessage(messageToSend: String) {
         
-        switch hk {
-        case "hk1" :
-            txtFldMessageHistory.stringValue.append("\n\(hotkey1)")
-        case "hk2" :
-            txtFldMessageHistory.stringValue.append("\n\(hotkey2)")
-        case "hk3" :
-            txtFldMessageHistory.stringValue.append("\n\(hotkey3)")
-        case "hk4" :
-            txtFldMessageHistory.stringValue.append("\n\(hotkey4)")
-        default :
-            break
+        if messageToSend != "" {
+            
+            switch messageToSend {
+            case "/clear" :
+                print (messageToSend)
+                print("Clearing Messageboard")
+                clearMessageHistory()
+            case "/macbeth" :
+                print (messageToSend)
+                clearMessageHistory()
+                txtFldMessageHistory.stringValue = "THE THEATRE"
+            case "/fab" :
+                print (messageToSend)
+                clearMessageHistory()
+                txtFldMessageHistory.stringValue = "THUNDERBOYS ARE GO"
+            case "/quit" :
+                view.window?.close()
+            default:
+                print(messageToSend)
+                if txtFldMessageHistory.stringValue == "" {
+                    txtFldMessageHistory.stringValue.append(messageToSend)
+                } else {
+                    
+                    txtFldMessageHistory.stringValue.append("\n\(messageToSend)")
+                }
+            }
+        } else {
+            txtFldMessageHistory.stringValue.append("\n ERROR:- Message contents blank")
         }
+        
+        clearMessageField()
+        
     }
+    
+    func clearMessageField () {
+        txtFldMessageText.stringValue = ""
+    }
+    
+    func clearMessageHistory () {
+        txtFldMessageHistory.stringValue = ""
+    }
+    
 }
 
