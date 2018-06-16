@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import OSCKit
 
 class ViewController: NSViewController {
     
@@ -67,10 +68,10 @@ class ViewController: NSViewController {
             
             // DOUG TO FIX :)
             
-            //            popupVC.fldHotkey1.stringValue = hotkey1
-            //            popupVC.fldHotkey2.stringValue = hotkey2
-            //            popupVC.fldHotkey3.stringValue = hotkey3
-            //            popupVC.fldHotkey4.stringValue = hotkey4
+//                        popupVC.fldHotkey1.stringValue = hotkey1
+//                        popupVC.fldHotkey2.stringValue = hotkey2
+//                        popupVC.fldHotkey3.stringValue = hotkey3
+//                        popupVC.fldHotkey4.stringValue = hotkey4
         }
     }
     

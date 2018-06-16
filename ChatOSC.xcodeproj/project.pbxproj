@@ -13,7 +13,33 @@
 		5D1ED65920C88636001852F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1ED65720C88636001852F9 /* Main.storyboard */; };
 		5D1ED66220D128D2001852F9 /* SetIPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ED66120D128D2001852F9 /* SetIPVC.swift */; };
 		5D1ED66520D129F3001852F9 /* EditHotkeysVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ED66320D129F3001852F9 /* EditHotkeysVC.swift */; };
+		5D7CD5CD20D53BA8004F8CD9 /* External Libraries in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CD5CC20D53BA8004F8CD9 /* External Libraries */; };
+		5D7CD5DA20D53EAD004F8CD9 /* OSCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7CD5D720D53BC2004F8CD9 /* OSCKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D7CD5D420D53BC2004F8CD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D7CD5CE20D53BC2004F8CD9 /* OSCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A5CBDBCD1F806E4400B9C5AF;
+			remoteInfo = CocoaAsyncSocket;
+		};
+		5D7CD5D620D53BC2004F8CD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D7CD5CE20D53BC2004F8CD9 /* OSCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A57968D51FA5D81700D9B9EE;
+			remoteInfo = OSCKit;
+		};
+		5D7CD5D820D53BC2004F8CD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D7CD5CE20D53BC2004F8CD9 /* OSCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A5227D291FA60C23002652EC;
+			remoteInfo = Demo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5D1ED64E20C88633001852F9 /* ChatOSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatOSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,6 +51,8 @@
 		5D1ED65B20C88636001852F9 /* ChatOSC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatOSC.entitlements; sourceTree = "<group>"; };
 		5D1ED66120D128D2001852F9 /* SetIPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetIPVC.swift; sourceTree = "<group>"; };
 		5D1ED66320D129F3001852F9 /* EditHotkeysVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHotkeysVC.swift; sourceTree = "<group>"; };
+		5D7CD5CC20D53BA8004F8CD9 /* External Libraries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "External Libraries"; sourceTree = "<group>"; };
+		5D7CD5CE20D53BC2004F8CD9 /* OSCKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OSCKit.xcodeproj; path = "External Libraries/OSCKit/OSCKit.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7CD5DA20D53EAD004F8CD9 /* OSCKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +70,10 @@
 		5D1ED64520C88633001852F9 = {
 			isa = PBXGroup;
 			children = (
+				5D7CD5CC20D53BA8004F8CD9 /* External Libraries */,
 				5D1ED65020C88633001852F9 /* ChatOSC */,
 				5D1ED64F20C88633001852F9 /* Products */,
+				5D7CD5BB20D537A8004F8CD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +98,24 @@
 				5D1ED65B20C88636001852F9 /* ChatOSC.entitlements */,
 			);
 			path = ChatOSC;
+			sourceTree = "<group>";
+		};
+		5D7CD5BB20D537A8004F8CD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D7CD5CE20D53BC2004F8CD9 /* OSCKit.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D7CD5CF20D53BC2004F8CD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D7CD5D520D53BC2004F8CD9 /* CocoaAsyncSocket.framework */,
+				5D7CD5D720D53BC2004F8CD9 /* OSCKit.framework */,
+				5D7CD5D920D53BC2004F8CD9 /* Demo.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +164,12 @@
 			mainGroup = 5D1ED64520C88633001852F9;
 			productRefGroup = 5D1ED64F20C88633001852F9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5D7CD5CF20D53BC2004F8CD9 /* Products */;
+					ProjectRef = 5D7CD5CE20D53BC2004F8CD9 /* OSCKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5D1ED64D20C88633001852F9 /* ChatOSC */,
@@ -122,11 +177,36 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		5D7CD5D520D53BC2004F8CD9 /* CocoaAsyncSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaAsyncSocket.framework;
+			remoteRef = 5D7CD5D420D53BC2004F8CD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5D7CD5D720D53BC2004F8CD9 /* OSCKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OSCKit.framework;
+			remoteRef = 5D7CD5D620D53BC2004F8CD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5D7CD5D920D53BC2004F8CD9 /* Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Demo.app;
+			remoteRef = 5D7CD5D820D53BC2004F8CD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		5D1ED64C20C88633001852F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7CD5CD20D53BA8004F8CD9 /* External Libraries in Resources */,
 				5D1ED65620C88636001852F9 /* Assets.xcassets in Resources */,
 				5D1ED65920C88636001852F9 /* Main.storyboard in Resources */,
 			);

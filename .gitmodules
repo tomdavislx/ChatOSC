@@ -1,0 +1,3 @@
+[submodule "External Libraries/OSCKit"]
+	path = External Libraries/OSCKit
+	url = https://github.com/SammyTheHand/OSCKit.git

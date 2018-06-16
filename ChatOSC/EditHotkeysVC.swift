@@ -14,6 +14,9 @@ class EditHotkeysVC: NSViewController {
         self.view.window?.close()
     }
     
+    @IBAction func btnOkClicked(_ sender: Any) {
+        view.window?.close()
+    }
     @IBOutlet var fldHotkey1: NSTextField!
     @IBOutlet var fldHotkey2: NSTextField!
     @IBOutlet var fldHotkey3: NSTextField!
