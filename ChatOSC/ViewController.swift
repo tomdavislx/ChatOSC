@@ -9,7 +9,7 @@
 import Cocoa
 import OSCKit
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTextFieldDelegate {
     
     var sendString :String = ""
     var messageHistory: String = ""
@@ -23,6 +23,8 @@ class ViewController: NSViewController {
     @IBOutlet var txtFldMessageHistory: NSTextField!
     @IBOutlet var txtFldMessageText: NSTextField!
     @IBOutlet var txtFldEosOutput: NSTextField!
+    @IBOutlet var labelCharacterCount: NSTextField!
+    @IBOutlet var buttonSend: NSButton!
     
     @IBAction func buttonEditClicked(_ sender: Any) {
     }
@@ -54,6 +56,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         txtFldEosOutput.stringValue = ""
+        buttonSend.isEnabled = false
     }
     
     override var representedObject: Any? {
@@ -123,10 +126,26 @@ class ViewController: NSViewController {
     
     func clearMessageField () {
         txtFldMessageText.stringValue = ""
+        labelCharacterCount.stringValue = "0/70"
+        buttonSend.isEnabled = false
     }
     
     func clearMessageHistory () {
         txtFldMessageHistory.stringValue = ""
+    }
+    
+    override func controlTextDidChange(_ obj: Notification) {
+        let characterCount = self.txtFldMessageText.stringValue.count
+        print(characterCount)
+        labelCharacterCount.stringValue = "\(String(characterCount))/70"
+        buttonSend.isEnabled = true
+        
+        if characterCount >= 70 {
+            self.txtFldMessageText.stringValue = String(self.txtFldMessageText.stringValue.dropLast())
+        }
+        if characterCount == 0 {
+            buttonSend.isEnabled = false
+        }
     }
     
 }

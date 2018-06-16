@@ -414,7 +414,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SYW-Pb-ROY">
-                                <rect key="frame" x="681" y="4" width="71" height="32"/>
+                                <rect key="frame" x="725" y="4" width="71" height="32"/>
                                 <buttonCell key="cell" type="push" title="Send" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0QF-N9-TaC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -459,6 +459,7 @@
                                 </textFieldCell>
                                 <connections>
                                     <action selector="buttonSendClicked:" target="XfG-lQ-9wD" id="E93-eE-vRN"/>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="72v-oj-fUi"/>
                                 </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lt2-EG-YeB">
@@ -585,10 +586,19 @@
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="Eos Output" drawsBackground="YES" id="7DI-6S-cwB">
                                     <font key="font" metaFont="system" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="scrollBarColor" catalog="System" colorSpace="catalog"/>
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1q7-gB-zF8">
+                                <rect key="frame" x="678" y="12" width="58" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0/70" id="Epn-4u-279">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
@@ -601,13 +611,13 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QKI-qb-Cab" secondAttribute="trailing" constant="20" symbolic="YES" id="EWb-fS-05Z"/>
                             <constraint firstItem="Lt2-EG-YeB" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="GfX-6C-m6W"/>
                             <constraint firstItem="nPt-Im-TTP" firstAttribute="centerY" secondItem="KkI-jF-nE6" secondAttribute="centerY" id="LT4-Gx-pD5"/>
-                            <constraint firstAttribute="trailing" secondItem="SYW-Pb-ROY" secondAttribute="trailing" constant="54" id="QXJ-M1-pDB"/>
+                            <constraint firstAttribute="trailing" secondItem="SYW-Pb-ROY" secondAttribute="trailing" constant="10" id="QXJ-M1-pDB"/>
                             <constraint firstAttribute="bottom" secondItem="SYW-Pb-ROY" secondAttribute="bottom" constant="11" id="T29-E5-qmT"/>
                             <constraint firstItem="U3b-1Y-Nah" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="VBs-jM-eCJ"/>
                             <constraint firstItem="Zy6-5T-buj" firstAttribute="leading" secondItem="QKI-qb-Cab" secondAttribute="trailing" constant="8" id="Wtl-Ai-qie"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LmH-iS-LOo" secondAttribute="trailing" constant="20" symbolic="YES" id="YTc-QU-HhH"/>
                             <constraint firstItem="ue6-Mr-bAz" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="b2o-DJ-Urw"/>
-                            <constraint firstItem="SYW-Pb-ROY" firstAttribute="leading" secondItem="ue6-Mr-bAz" secondAttribute="trailing" constant="15" id="bMS-V3-wWz"/>
+                            <constraint firstItem="SYW-Pb-ROY" firstAttribute="leading" secondItem="ue6-Mr-bAz" secondAttribute="trailing" constant="59" id="bMS-V3-wWz"/>
                             <constraint firstItem="NaX-Cz-vtk" firstAttribute="top" secondItem="QKI-qb-Cab" secondAttribute="bottom" constant="8" id="cbx-ZD-jRN"/>
                             <constraint firstItem="Lt2-EG-YeB" firstAttribute="top" secondItem="nPt-Im-TTP" secondAttribute="bottom" constant="24" id="lE2-fH-sAH"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zy6-5T-buj" secondAttribute="trailing" constant="20" symbolic="YES" id="ldC-5q-dxj"/>
@@ -621,6 +631,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonSend" destination="SYW-Pb-ROY" id="xzQ-8a-ddI"/>
+                        <outlet property="labelCharacterCount" destination="1q7-gB-zF8" id="HbH-HN-qui"/>
                         <outlet property="labelConnectionStatus" destination="Zy6-5T-buj" id="u72-Cy-LAh"/>
                         <outlet property="labelConsoleIP" destination="KkI-jF-nE6" id="lfB-Ws-pnJ"/>
                         <outlet property="txtFldEosOutput" destination="P7Y-T2-0xh" id="CzY-3A-aMD"/>
