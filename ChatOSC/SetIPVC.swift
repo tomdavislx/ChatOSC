@@ -28,11 +28,11 @@ class SetIPVC: NSViewController, OSCClientDelegate, OSCPacketDestination {
     }
     
     @IBAction func btnCancelClicked(_ sender: Any) {
-        self.view.window?.close()
+        self.dismiss(nil)
     }
     
     @IBAction func btnOkClicked(_ sender: Any) {
-        view.window?.close()
+        self.dismiss(nil)
     }
     
     override func viewDidLoad() {
