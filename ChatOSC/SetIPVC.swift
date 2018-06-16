@@ -12,7 +12,7 @@ import OSCKit
 class SetIPVC: NSViewController, OSCClientDelegate, OSCPacketDestination {
     
     var remoteIPAddress = "192.168.1.87"
-
+    
     @IBOutlet var txtFldIPAddress: NSTextField!
     @IBOutlet var popupOSCVersion: NSPopUpButton!
     @IBOutlet var lblConnectionStatus: NSTextField!
@@ -38,8 +38,19 @@ class SetIPVC: NSViewController, OSCClientDelegate, OSCPacketDestination {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        createClient()
+        
         interfaces()
+        
+//        server.port = 24601
+//        server.delegate = self
+//        do {
+//            try server.startListening()
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+    
+        createClient()
+    
         txtFldIPAddress.stringValue = remoteIPAddress
     }
     
@@ -60,16 +71,20 @@ class SetIPVC: NSViewController, OSCClientDelegate, OSCPacketDestination {
     let client = OSCClient()
     
     func createClient() {
-    //client.interface = "en0"
+        client.interface = "en0"
         client.host = remoteIPAddress
         client.port = 3032
         client.useTCP = true
         client.delegate = self
+        
     }
     
     func clientDidConnect(client: OSCClient) {
         print("Client did connect")
         lblConnectionStatus.stringValue = "Connection Successful!"
+        
+        let message = OSCMessage(messageWithAddressPattern: "/eos/tomtest/", arguments: [])
+        client.send(packet: message)
     }
     
     func clientDidDisconnect(client: OSCClient) {
