@@ -136,10 +136,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     override func controlTextDidChange(_ obj: Notification) {
         let characterCount = self.txtFldMessageText.stringValue.count
-<<<<<<< HEAD
         print(characterCount)
-=======
->>>>>>> master
         labelCharacterCount.stringValue = "\(String(characterCount))/70"
         buttonSend.isEnabled = true
         
