@@ -453,15 +453,18 @@
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
                                 </textFieldCell>
                                 <connections>
                                     <action selector="buttonSendClicked:" target="XfG-lQ-9wD" id="E93-eE-vRN"/>
                                 </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lt2-EG-YeB">
-                                <rect key="frame" x="20" y="179" width="760" height="269"/>
+                                <rect key="frame" x="20" y="298" width="760" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="269" id="Id4-C1-VYx"/>
+                                    <constraint firstAttribute="height" constant="150" id="Id4-C1-VYx"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="8sO-Pa-SRE">
                                     <font key="font" metaFont="system"/>
@@ -567,6 +570,27 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in1-J4-c9P">
+                                <rect key="frame" x="12" y="262" width="162" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Current Eos Display:" id="fkQ-ea-QJ4">
+                                    <font key="font" metaFont="systemBold" size="16"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7Y-T2-0xh">
+                                <rect key="frame" x="20" y="214" width="728" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="Eos Output" drawsBackground="YES" id="7DI-6S-cwB">
+                                    <font key="font" metaFont="system" size="16"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="LmH-iS-LOo" firstAttribute="leading" secondItem="nPt-Im-TTP" secondAttribute="trailing" constant="12" id="1Sd-XX-Jfo"/>
@@ -599,6 +623,7 @@
                     <connections>
                         <outlet property="labelConnectionStatus" destination="Zy6-5T-buj" id="u72-Cy-LAh"/>
                         <outlet property="labelConsoleIP" destination="KkI-jF-nE6" id="lfB-Ws-pnJ"/>
+                        <outlet property="txtFldEosOutput" destination="P7Y-T2-0xh" id="CzY-3A-aMD"/>
                         <outlet property="txtFldMessageHistory" destination="Lt2-EG-YeB" id="hyb-7C-dqo"/>
                         <outlet property="txtFldMessageText" destination="ue6-Mr-bAz" id="P0E-eX-ahU"/>
                     </connections>

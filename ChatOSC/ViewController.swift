@@ -22,6 +22,7 @@ class ViewController: NSViewController {
     @IBOutlet var labelConsoleIP: NSTextField!
     @IBOutlet var txtFldMessageHistory: NSTextField!
     @IBOutlet var txtFldMessageText: NSTextField!
+    @IBOutlet var txtFldEosOutput: NSTextField!
     
     @IBAction func buttonEditClicked(_ sender: Any) {
     }
@@ -51,8 +52,8 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        txtFldEosOutput.stringValue = ""
     }
     
     override var representedObject: Any? {
@@ -68,47 +69,56 @@ class ViewController: NSViewController {
             
             // DOUG TO FIX :)
             
-//                        popupVC.fldHotkey1.stringValue = hotkey1
-//                        popupVC.fldHotkey2.stringValue = hotkey2
-//                        popupVC.fldHotkey3.stringValue = hotkey3
-//                        popupVC.fldHotkey4.stringValue = hotkey4
+            //popupVC.fldHotkey1.stringValue = hotkey1
+            //popupVC.fldHotkey2.stringValue = hotkey2
+            //popupVC.fldHotkey3.stringValue = hotkey3
+            //popupVC.fldHotkey4.stringValue = hotkey4
         }
     }
     
     func parseMessage(messageToSend: String) {
         
-        if messageToSend != "" {
+        if !messageToSend.isEmpty {
             
             switch messageToSend {
-            case "/clear" :
-                print (messageToSend)
+            case "/clearlog" :
+                print(messageToSend)
                 print("Clearing Messageboard")
                 clearMessageHistory()
+            case "/clear" :
+                print(messageToSend)
+                sendToEos(message: "")
             case "/macbeth" :
                 print (messageToSend)
                 clearMessageHistory()
                 txtFldMessageHistory.stringValue = "THE THEATRE"
+                sendToEos(message: "THE THEATRE")
             case "/fab" :
                 print (messageToSend)
                 clearMessageHistory()
                 txtFldMessageHistory.stringValue = "THUNDERBOYS ARE GO"
+                sendToEos(message: "THUNDERBOYS ARE GO")
             case "/quit" :
+                sendToEos(message: "ChatOSC Disconnected")
                 view.window?.close()
             default:
                 print(messageToSend)
-                if txtFldMessageHistory.stringValue == "" {
+                let history = txtFldMessageHistory.stringValue
+                sendToEos(message: messageToSend)
+                if history.isEmpty {
                     txtFldMessageHistory.stringValue.append(messageToSend)
                 } else {
-                    
                     txtFldMessageHistory.stringValue.append("\n\(messageToSend)")
                 }
             }
         } else {
-            txtFldMessageHistory.stringValue.append("\n ERROR:- Message contents blank")
+            print("Error:- Blank message")
         }
-        
         clearMessageField()
-        
+    }
+    
+    func sendToEos(message: String) {
+        txtFldEosOutput.stringValue = message
     }
     
     func clearMessageField () {
