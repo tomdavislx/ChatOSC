@@ -631,6 +631,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnHotkey1" destination="Wxt-Qy-88X" id="C6s-8u-zhh"/>
+                        <outlet property="btnHotkey2" destination="34G-gL-wgV" id="7n4-JE-7kC"/>
+                        <outlet property="btnHotkey3" destination="o1d-Dd-FD1" id="Mte-WL-QLt"/>
+                        <outlet property="btnHotkey4" destination="thQ-oJ-Z9y" id="yTW-ur-EH7"/>
                         <outlet property="buttonSend" destination="SYW-Pb-ROY" id="xzQ-8a-ddI"/>
                         <outlet property="labelCharacterCount" destination="1q7-gB-zF8" id="HbH-HN-qui"/>
                         <outlet property="labelConnectionStatus" destination="Zy6-5T-buj" id="u72-Cy-LAh"/>

@@ -13,10 +13,14 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     var sendString :String = ""
     var messageHistory: String = ""
-    var hotkey1 :String = "Sample 1"
-    var hotkey2 :String = "Sample 2"
-    var hotkey3 :String = "Sample 3"
-    var hotkey4 :String = "Sample 4"
+    
+    // These values should get updated immediately on view load, from UserDefaults
+    var hotkeys: [String] = [
+        "1",
+        "2",
+        "3",
+        "4'"
+    ]
     
     @IBOutlet var labelConnectionStatus: NSTextField!
     @IBOutlet var labelConsoleIP: NSTextField!
@@ -26,20 +30,26 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet var labelCharacterCount: NSTextField!
     @IBOutlet var buttonSend: NSButton!
     
+    // Hotkey button outlets
+    @IBOutlet weak var btnHotkey1: NSButton!
+    @IBOutlet weak var btnHotkey2: NSButton!
+    @IBOutlet weak var btnHotkey3: NSButton!
+    @IBOutlet weak var btnHotkey4: NSButton!
+    
     @IBAction func buttonEditClicked(_ sender: Any) {
     }
     
     @IBAction func btnHotkey1Clicked(_ sender: Any) {
-        parseMessage(messageToSend: hotkey1)
+        parseMessage(messageToSend: hotkeys[0])
     }
     @IBAction func btnHotkey2Clicked(_ sender: Any) {
-        parseMessage(messageToSend: hotkey2)
+        parseMessage(messageToSend: hotkeys[1])
     }
     @IBAction func btnHotkey3Clicked(_ sender: Any) {
-        parseMessage(messageToSend: hotkey3)
+        parseMessage(messageToSend: hotkeys[2])
     }
     @IBAction func btnHotkey4Clicked(_ sender: Any) {
-        parseMessage(messageToSend: hotkey4)
+        parseMessage(messageToSend: hotkeys[3])
     }
     
     @IBAction func buttonSendClicked(_ sender: Any) {
@@ -57,25 +67,36 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         // Do any additional setup after loading the view.
         txtFldEosOutput.stringValue = ""
         buttonSend.isEnabled = false
+        
+        // Subscribe to UserDefault "hotkeys" to update button text on change
+        UserDefaults.standard.addObserver(self, forKeyPath: "hotkeys", options: .new, context: nil)
+        
+        // Load hotkey text values manually for the first time
+        updateHotkeysText()
     }
     
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded
+    deinit {
+        // Remove the user default observer
+        UserDefaults.standard.removeObserver(self, forKeyPath: "hotkeys")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "hotkeys" {
+            updateHotkeysText()
         }
     }
     
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier!.rawValue == "hotkeysSegue" {
-            let popupVC = segue.destinationController as! EditHotkeysVC
-            print (hotkey1)
+    func updateHotkeysText() {
+        // Update the hotkeys with values from the user defaults
+        if let hotkeys = UserDefaults.standard.stringArray(forKey: "hotkeys") {
+            self.hotkeys = hotkeys
             
-            // DOUG TO FIX :)
-            
-            //popupVC.fldHotkey1.stringValue = hotkey1
-            //popupVC.fldHotkey2.stringValue = hotkey2
-            //popupVC.fldHotkey3.stringValue = hotkey3
-            //popupVC.fldHotkey4.stringValue = hotkey4
+            btnHotkey1.title = hotkeys[0]
+            btnHotkey2.title = hotkeys[1]
+            btnHotkey3.title = hotkeys[2]
+            btnHotkey4.title = hotkeys[3]
+        } else {
+            NSLog("Warning: could not load hotkey defaults")
         }
     }
     

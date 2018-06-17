@@ -11,12 +11,20 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    // Default settings if no user defaults are found
+    let defaultSettings = [
+        "hotkeys": [
+            "Test 1",
+            "Test 2",
+            "Test 3",
+            "Test 4"
+        ]
+    ]
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        UserDefaults.standard.register(defaults: defaultSettings)
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
